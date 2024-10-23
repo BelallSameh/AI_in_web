@@ -1,1 +1,2 @@
-# AI_in_web
+# AI in web uwing Docker, FastAPI and AI model
+
