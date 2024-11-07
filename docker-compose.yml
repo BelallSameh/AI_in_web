@@ -1,0 +1,35 @@
+services:
+  # FastAPI app
+  app:
+    build: .
+    container_name: my_dl_project
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://user:password@db:5432/mydatabase
+    volumes:
+      - .:/app
+    networks:
+      - my_network
+
+  # PostgreSQL database
+  db:
+    image: postgres:13
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - my_network
+
+volumes:
+  pgdata:
+
+networks:
+  my_network:
+    driver: bridge
