@@ -1,2 +1,2 @@
-# AI in web using Docker, FastAPI and AI model
+# AI in web using Docker, FastAPI, AI model, and PostgreSQL
 
